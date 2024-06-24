@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Bezpapirove\BezpapirovePhpBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -14,7 +15,6 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('bezpapirove_php_bundle');
 
-        /** @var NodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('file_handler')
                     ->children()
                         ->scalarNode('base_path')
-                            ->defaultValue('%kernel.project_dir%')
+                            ->defaultValue('%kernel.project_dir%/public/runtime')
                         ->end()
                     ->end()
                 ->scalarNode('default_connection')

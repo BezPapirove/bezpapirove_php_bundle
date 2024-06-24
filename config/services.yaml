@@ -21,3 +21,7 @@ services:
     # why public? so we can get it from container in bin file
     # via "$container->get(Application::class)"
     public: true
+
+  Bezpapirove\BezpapirovePhpLib\File\FileHandler:
+    arguments:
+      - '%kernel.project_dir%/public/runtime'
