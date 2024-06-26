@@ -11,11 +11,7 @@ services:
   # this creates a service per class whose id is the fully-qualified class name
   Bezpapirove\BezpapirovePhpBundle\:
     resource: '../src/*'
-    exclude: '../src/{DependencyInjection,Command,BezpapirovePhpBundle.php}'
-
-  Bezpapirove\BezpapirovePhpBundle\Command\:
-    resource: '../src/Command/*'
-    tags: ['console.command']
+    exclude: '../src/{BezpapirovePhpBundle.php}'
 
   Symfony\Component\Console\Application:
     # why public? so we can get it from container in bin file
