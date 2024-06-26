@@ -35,7 +35,7 @@ class BezpapirovePhpBundle extends AbstractBundle
         // load an XML, PHP or YAML file
         $container->import('../config/services.yaml');
 
-        if ($config['file_handler']['base_path']) {
+        if (isset($config['file_handler']['base_path'])) {
             $container->services()
                 ->get(FileHandler::class)
                     ->arg(0, $config['file_handler']['base_path'])
